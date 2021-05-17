@@ -1,69 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE DETECTION</title>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+</head>
+<body>
+    
+    Name <input id="name" type="text" name="name">
+    <button id="insert">insert</button>
+    
+    <script src="index.js"></script>    
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html>
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fire Detection Robot</title>
+        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+        <script src="app.js"></script>
+        
+        
+        <style>
+            header {
+                background-color: #ffffff;
+                text-align:center;
+            }
+            body {
+                background-color: rgba(148, 155, 192, 0.808);
+                font-family: "Comic Sans MS", cursive, sans-serif;
+            }
+            .box-row {
+                display: flex;
+                justify-content: center; 
+            }
+            #box1 {
+                text-align: center;
+                display:table-cell;
+                box-sizing: border-box;
+                border: 20px solid rgb(116, 6, 241);
+                margin: 50px;
+                padding: 50px;
+            }
+            #box2 {
+                text-align: center;
+                display:table-cell;
+                box-sizing: border-box;
+                border: 20px solid rgb(116, 6, 241);
+                margin: 50px;
+                padding: 50px; 
+            }
+            p {
+                text-align: center;
+            }
+        </style>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    <!-- Bootstrap Material Design -->
-    <link rel="stylesheet"
-        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
-        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
-    <style>
-        body {
-            background-color: #696969 !important;
-        }
+    </head>
 
-        .card {
-            margin: 0 auto;
-            /* Added */
-            float: none;
-            /* Added */
-            margin-bottom: 10px;
-            /* Added */
-            margin-top: 50px
-        }
-    </style>
-    <title>Firebase IoT Demo</title>
-</head>
+    <body>
 
-<body>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                <div style="font-size: 20px;" class="card-header">Led Control</div>
-                <div class="card-body">
-                    <h1 id="Control" style="font-size: 75px; text-align: center;" class="card-title">
-                            <button onclick="ledOn()" style="width: auto">ON</button>
-                            <button onclick="ledOff()" style="width: auto;">OFF</button>
-                    </h1>
-                </div>
-                
+        <header>
+            <h1 style="color:rgb(20, 14, 7);">Fire Detection Robot 🤖</h1>
+            <iframe src="https://free.timeanddate.com/clock/i7spz91u/n4501/tleg/fn7/fs20/tct/pct/ftb/th2" frameborder="0" width="129" height="30" allowtransparency="true"></iframe>
+        </header>
+        
+        <div class="box-row">
+
+            <div id="box1">
+                <h1 style="color:rgb(0, 255, 0);">Safe</h1>
+                <img src="shield-logo.png" style="width:250px;height:225px;">
             </div>
-        </div>
-        <div class="col-sm-6"> 
-            <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                <div style="font-size: 20px;" class="card-header">Led Status</div>
-                <div class="card-body">
-                    <h1 id="Status" style="font-size: 75px;" class="card-title"></h1>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Needed for Bootstrap Material Design -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
-        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
-        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
-        crossorigin="anonymous"></script>
-    <!-- Firebase App -->
-    <script src="app.js"></script>
-</body>
+            <div id="box2">
+                <h1 style="color:rgb(250, 233, 0);">Fire</h1>
+                <img src="fire-logo.png" style="width:250px;height:225px;">
+            </div>
+
+        </div>
+        
+
+        <footer>
+            <p>© 2021 EEFFMNNNS, Inc.</p>
+        </footer>
+
+    </body>
 
 </html>

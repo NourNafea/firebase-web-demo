@@ -1,42 +1,39 @@
-(function () {
-    // Set the configuration for your app
-    var config = {
+(function(){
+    var firebaseConfig = {
+        
         apiKey: "eV6sxUs1lTPkcyQphKwf9z1u4rlOxb3nlEmMNDWS",
-        authDomain: "fire-detection-robot-default-rtdb.firebaseio.com",
-        databaseURL: "https://fire-detection-robot-default-rtdb.firebaseio.com",
-        projectId: "fire-detection-robot",
-        storageBucket: "fire-detection-robot.appspot.com",
-        messagingSenderId: "1098199709707"
-    };
-
-    firebase.initializeApp(config);
-
-    // Get a reference to the database service
-    var database = firebase.database();
-
-    // Get element from the DOM
-    const tempElement = document.getElementById('Status');
-
-    // Create temperature database reference
-    const StatusRef = database.ref();
-
-    // Sync objects changes
-    StatusRef.limitToLast(1).on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            var childData = childSnapshot.val();
-            console.log("Status: " + childData);
-            tempElement.innerText = childData;
-        });
-    });
-
-}());
-function ledOn(){
-    firebase.database().ref("LED").set({
-    status:"ON"
+          authDomain: "fire-detection-robot-default-rtdb.firebaseio.com",
+          databaseURL: "https://fire-detection-robot-default-rtdb.firebaseio.com",
+          projectId: "fire-detection-robot",
+          storageBucket: "fire-detection-robot.appspot.com",
+          messagingSenderId: "1098199709707"
+      };
+    
+    //   Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    
+    var database = firebase.database(); //get reference to the database
+    
+    
+    
+    firebase.database().ref("FLAME STATE").on("value", (snapshot)=>{
+      const val = snapshot.val();
+      var element1 = document.getElementById("box1");
+      var element2 = document.getElementById("box2");
+      if (val == true) //fire is detected
+      {
+        console.log(val);
+        element1.style.backgroundColor = "white";
+        element2.style.backgroundColor = "red";
+      }
+    
+      else
+      {
+        element1.style.backgroundColor = "green";
+        element2.style.backgroundColor = "white";
+        console.log(val);
+      }
+      
     })
-  }
-  function ledOff(){
-    firebase.database().ref("LED").set({
-    status:"OFF"
-    })
-  }
+    }())
+    
